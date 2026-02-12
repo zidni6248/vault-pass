@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Password Generator - Secure & Stylish</title>
+  
+  <!-- CSS ফাইল -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- tsParticles CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/@tsparticles/preset-links@3/tsparticles.preset.links.min.js"></script>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Password Generator</h1>
+    
+    <input type="text" id="password" readonly placeholder="Click Generate!">
+    <p id="copyHint">Click to Copy</p>
+    
+   <div class="options">
+  <label>Length: <span id="lengthValue">16</span></label>
+  <input type="range" id="length" min="1" max="50" value="16" step="1">
+
+  <div class="checkbox-row">
+    <label><input type="checkbox" id="uppercase" checked> Uppercase (A-Z)</label>
+    <label><input type="checkbox" id="lowercase" checked> Lowercase (a-z)</label>
+  </div>
+
+  <div class="checkbox-row">
+    <label><input type="checkbox" id="numbers" checked> Numbers (0-9)</label>
+    <label><input type="checkbox" id="symbols" checked> Symbols (!@#$% etc)</label>
+  </div>
+</div>
+    
+    <button id="generate">Generate Password</button>
+    <button id="copy">Copy to Clipboard</button>
+    
+    <div id="strength"></div>
+  </div>
+
+  <!-- তোমার JavaScript ফাইল -->
+  <script src="script.js" defer></script>
+</body>
+</html>
+

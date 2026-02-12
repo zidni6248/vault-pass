@@ -1,0 +1,254 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(-45deg, #0f0f23, #1a0033, #0f0f23, #001a33, #0f0f23);
+  background-size: 400% 400%;
+  animation: gradientFlow 20s ease infinite;
+  color: #e0e0ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Slow animated gradient movement */
+@keyframes gradientFlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Subtle radial glow overlay (cyber feel) */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 30% 70%, rgba(0, 212, 255, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: -2;
+}
+
+.container {
+  background: #1a1a3d;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  position: relative;
+  z-index: 1; /* container particles-এর উপরে থাকবে */
+}
+
+h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 0.8rem;  
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#password {
+  width: 100%;
+  padding: 1rem;
+  letter-spacing: 1.5px;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 1.3rem;
+  background: #0d0d1f;
+  color: white;
+  border: 1px solid #444;
+  border-radius: 8px;
+  margin: 0.8rem auto;
+  display: block;
+  text-align: center;
+  box-sizing: border-box;
+  max-width: 100%;
+  
+  /* নতুন যোগ হচ্ছে ↓ */
+  transition: all 0.25s ease;     /* স্মুথ অ্যানিমেশন */
+  cursor: pointer;                /* হোভারে হাতের চিহ্ন দেখাবে */
+}
+
+/* ক্লিক করার সময় গ্লো + scale */
+#password.clicked {
+  transform: scale(1.03);         /* ৩% বড় হবে */
+  box-shadow: 0 0 25px rgba(0, 212, 255, 0.6); /* নীল গ্লো */
+  border-color: #00d4ff;          /* বর্ডার নীল */
+}
+
+
+#copyHint {
+  text-align: center;
+  font-size: 0.85rem;  
+  color: #a0a0a0;      
+  margin: 0.2rem 0 1.2rem 0;  /* উপর-নিচে ছোট স্পেস */
+  font-style: italic;  /* হালকা ইটালিক যাতে সুন্দর লাগে */
+  user-select: none;   /* কপি না করতে দেয়া */
+}
+
+#copyHint {
+  cursor: pointer;
+}
+
+.options {
+  margin: 1.5rem 0;
+}
+
+label {
+
+  display: flex;
+  align-items: center;
+  font-size: 1.05rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; /* সাধারণ, ক্লিন ফন্ট */
+  font-weight: 400; /* না বোল্ড, যাতে password-এর থেকে কম দৃষ্টি আকর্ষণ করে */
+  color: #d0d0ff;   /* হালকা নীল-সাদা — খুব ব্রাইট না */
+  user-select: none;
+}
+
+input[type="range"] {
+  width: 100%;
+  margin: 0.5rem 0;
+  accent-color: #ffffff;
+  input[type="range"] {
+  width: 100%;
+  margin: 0.5rem 0;
+  accent-color: #ffffff;           /* স্লাইডারের কালার white করা */
+  -webkit-appearance: none;        /* ক্রস-ব্রাউজার স্টাইল */
+  height: 6px;
+  background: #444;                /* ট্র্যাকের কালার */
+  border-radius: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #ffffff;             /* থাম্বও সাদা */
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  background: #ffffff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+}
+
+#lengthValue {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+button {
+  width: 100%;
+  padding: 0.9rem;
+  font-size: 1.1rem;
+  margin: 0.6rem 0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+#generate {
+  font-weight: bold;
+  background: #00d4ff;
+  color: black;
+}
+
+#copy {
+  font-weight: bold;
+  background: #4caf50;
+  color: white;
+}
+
+/* Strength Styles */
+#strength {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 1.2rem;
+  padding: 0.8rem;
+  border-radius: 8px;
+  background: #222244;
+  transition: all 0.3s;
+}
+
+.very-weak  { color: #ff0000;   background: rgba(255,0,0,0.18); }
+.weak       { color: #ff6600;   background: rgba(255,102,0,0.18); }
+.good       { color: #88ff88;   background: rgba(136,255,136,0.15); }
+.very-good  { color: #02aa3aaf;   background: rgba(0,204,68,0.18); }
+.strong     { color: #03da03;   background: rgba(0,153,0,0.20); }
+.very-strong{ color: #00fd00;   background: rgba(0,77,0,0.28); font-weight: bolder; }
+
+/* Checkbox row - পাশাপাশি সাজানোর জন্য */
+.checkbox-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;               /* দুই লেবেলের মাঝে ফাঁকা জায়গা */
+  margin-bottom: 0.8rem;   /* দুই লাইনের মাঝে স্পেস */
+}
+
+.checkbox-row label {
+  flex: 1;                 /* প্রত্যেক লেবেল সমান জায়গা নেবে */
+  display: flex;
+  align-items: center;
+  font-size: 1.05rem;
+  cursor: pointer;
+}
+
+/* Custom checkbox styling */
+.checkbox-row input[type="checkbox"] {
+  appearance: none;                /* ডিফল্ট চেকবক্স লুক সরিয়ে দেয় */
+  width: 20px;
+  height: 20px;
+  margin-right: 0.8rem;
+  background-color: #000;          /* unchecked: black background */
+  border: none;                    /* no outline */
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+/* Checked অবস্থায় */
+.checkbox-row input[type="checkbox"]:checked {
+  background-color: #ffffff;       /* checked: white background */
+}
+
+/* টিক মার্ক (checked অবস্থায়) */
+.checkbox-row input[type="checkbox"]::after {
+  content: "✔";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  color: #000;                     /* checked: black টিক */
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.checkbox-row input[type="checkbox"]:checked::after {
+  opacity: 1;
+}
+
+/* Hover effect (optional, দেখতে ভালো লাগে) */
+.checkbox-row input[type="checkbox"]:hover {
+  background-color: #333;
+}
+
+.checkbox-row input[type="checkbox"]:checked:hover {
+  background-color: #f0f0f0;
+}
