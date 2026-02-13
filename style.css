@@ -252,3 +252,57 @@ button:hover {
 .checkbox-row input[type="checkbox"]:checked:hover {
   background-color: #f0f0f0;
 }
+
+/* Logo - Upper Left Corner */
+.header-logo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 10; /* কনটেন্টের উপরে থাকবে */
+}
+
+.logo-img {
+  width: 100px; /* তোমার লোগোর সাইজ — এখানে চেঞ্জ করো */
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.1); /* হোভারে একটু বড় হবে */
+}
+
+/* মোবাইলে ছোট করে */
+@media (max-width: 500px) {
+  .header-logo {
+    top: 0.8rem;
+    left: 0.8rem;
+  }
+  .logo-img {
+    width: 100px;
+  }
+}
+
+.logo-img {
+  max-width: 200px; /* লোগোর সাইজ — চাও তো বাড়াও/কমাও */
+  height: auto;
+  display: block;
+  margin: 0 auto 0.5rem auto;
+}
+
+.tagline {
+  margin: 0;
+  font-size: 1rem;
+  color: #a0a0ff; /* হালকা নীল/বেগুনি */
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* মোবাইলে ছোট করে দেখানোর জন্য */
+@media (max-width: 600px) {
+  .logo-img {
+    max-width: 180px;
+  }
+  .tagline {
+    font-size: 0.9rem;
+  }
+}
