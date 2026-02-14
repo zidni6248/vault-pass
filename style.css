@@ -253,23 +253,6 @@ button:hover {
   background-color: #f0f0f0;
 }
 
-/* Logo - Upper Left Corner */
-.header-logo {
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
-  z-index: 10; /* কনটেন্টের উপরে থাকবে */
-}
-
-.logo-img {
-  width: 100px; /* তোমার লোগোর সাইজ — এখানে চেঞ্জ করো */
-  height: auto;
-  transition: transform 0.3s ease;
-}
-
-.logo-img:hover {
-  transform: scale(1.1); /* হোভারে একটু বড় হবে */
-}
 
 /* মোবাইলে ছোট করে */
 @media (max-width: 500px) {
