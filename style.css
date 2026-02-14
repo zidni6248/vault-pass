@@ -31,15 +31,30 @@ body::before {
 }
 
 .container {
-  background: #1a1a3d;
-  padding: 2rem;
-  border-radius: 12px;
-  width: 100%;
-  max-width: 420px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+  /* Glassmorphism core */
+  background: rgba(26, 26, 61, 0.25);          /* #1a1a3d এর সাথে মিলিয়ে semi-transparent */
+  backdrop-filter: blur(16px);                 /* ব্লার স্ট্রেংথ — 10 থেকে 20 এর মধ্যে সবচেয়ে ভালো লাগে */
+  -webkit-backdrop-filter: blur(16px);         /* Safari-এর জন্য দরকার */
+  
+  border: 1px solid rgba(255, 255, 255, 0.18); /* হালকা সাদা বর্ডার — glass-এর এজ দেখায় */
+  border-radius: 16px;                         /* একটু বেশি গোলাকার — আধুনিক লুক */
+  
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.37),           /* গভীর ছায়া */
+    inset 0 0 10px rgba(255, 255, 255, 0.05); /* হালকা inner glow — premium feel */
+  
+  padding: 2.5rem;                             /* একটু বেশি প্যাডিং যাতে ভিতরে শ্বাস নেয় */
+  width: 450%;
+  max-width: 420px;                            /* একটু চওড়া করলাম — ভালো লাগে */
   position: relative;
-  z-index: 1; /* container particles-এর উপরে থাকবে */
+  z-index: 1;
+  overflow: hidden;                            /* যদি কোনো চাইল্ড এলিমেন্ট বেরিয়ে যায় */
+  
+  /* Optional subtle shine/gradient border effect */
+  transition: all 0.4s ease;
 }
+
+
 
 h1 {
   text-align: center;

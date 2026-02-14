@@ -1,81 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E1NVCJYG58"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-E1NVCJYG58');
-</script>
-
-  <!-- Google Search Console verification -->
-<meta name="google-site-verification" content="3YnMhnVZgNieoSie39B_YmgdVx32gW_hOWFMEjhcs3M" />
-
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Password Generator - Secure & Stylish</title>
 
-  <!-- Favicon - root level files -->
-<link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-E1NVCJYG58"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-E1NVCJYG58');
+  </script>
 
-<!-- Better support for different devices -->
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <!-- Google Search Console verification -->
+  <meta name="google-site-verification" content="3YnMhnVZgNieoSie39B_YmgdVx32gW_hOWFMEjhcs3M">
 
-<!-- Android/Chrome icons (already in your repo) -->
-<link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
-<link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
-<link rel="manifest" href="/site.webmanifest">
-  
-  <!-- CSS ফাইল -->
+  <!-- Favicon set -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+  <!-- CSS -->
   <link rel="stylesheet" href="style.css">
-  
+</head>
+
+<body>
+
   <div class="container">
     <h1>Password Generator</h1>
-    
+
     <input type="text" id="password" readonly placeholder="Click Generate!">
     <p id="copyHint">Click to Copy</p>
-    
-   <div class="options">
-  <label>Length: <span id="lengthValue">16</span></label>
-  <input type="range" id="length" min="1" max="50" value="16" step="1">
 
-  <div class="checkbox-row">
-    <label><input type="checkbox" id="uppercase" checked> Uppercase (A-Z)</label>
-    <label><input type="checkbox" id="lowercase" checked> Lowercase (a-z)</label>
-  </div>
+    <div class="options">
+      <label>Length: <span id="lengthValue">16</span></label>
+      <input type="range" id="length" min="1" max="50" value="16" step="1">
 
-  <div class="checkbox-row">
-    <label><input type="checkbox" id="numbers" checked> Numbers (0-9)</label>
-    <label><input type="checkbox" id="symbols" checked> Symbols (!@#$% etc)</label>
-  </div>
-</div>
-    
+      <div class="checkbox-row">
+        <label><input type="checkbox" id="uppercase" checked> Uppercase (A-Z)</label>
+        <label><input type="checkbox" id="lowercase" checked> Lowercase (a-z)</label>
+      </div>
+
+      <div class="checkbox-row">
+        <label><input type="checkbox" id="numbers" checked> Numbers (0-9)</label>
+        <label><input type="checkbox" id="symbols" checked> Symbols (!@#$% etc)</label>
+      </div>
+    </div>
+
     <button id="generate">Generate Password</button>
     <button id="copy">Copy to Clipboard</button>
-    
+
     <div id="strength">
-  <div id="strength-text">Password Strength: —</div>
-  <div class="progress-container">
-    <div id="progress-bar" class="progress-bar"></div>
-  </div>
- <div id="strength">
-  <div id="strength-text">Password Strength: —</div>
-  <div class="progress-container">
-    <div id="progress-bar" class="progress-bar"></div>
-  </div>
-  <div id="crack-time" class="crack-time-text"></div>
-</div>
-</div>
+      <div id="strength-text">Password Strength: —</div>
+      <div class="progress-container">
+        <div id="progress-bar" class="progress-bar"></div>
+      </div>
+      <div id="crack-time" class="crack-time-text"></div>
+    </div>
   </div>
 
-  <!-- তোমার JavaScript ফাইল -->
+  <!-- JavaScript -->
   <script src="script.js" defer></script>
 </body>
 </html>
