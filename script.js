@@ -64,21 +64,31 @@ function generatePassword(length, upper, lower, num, sym) {
   return password;
 }
 
-// Strength calculation (6 levels)
+// Strength calculation + progress bar + crack time estimate
 function updateStrength(length, hasUpper, hasLower, hasNum, hasSym) {
   const typesCount = [hasUpper, hasLower, hasNum, hasSym].filter(Boolean).length;
 
+  // Base score
   let score = length * 1.2;
   if (hasUpper)  score += 8;
   if (hasLower)  score += 6;
   if (hasNum)    score += 6;
   if (hasSym)    score += 12;
 
+  // Bonus for very long passwords
   if (length >= 25) score += 20;
   else if (length >= 20) score += 15;
   else if (length >= 16) score += 10;
   else if (length >= 12) score += 5;
 
+  // Penalty for short or few types
+  if (length < 8 || typesCount < 2) score = Math.min(score, 15);
+  else if (length < 12 || typesCount < 3) score = Math.min(score, 30);
+
+  // Normalize to 0-100 for progress bar
+  let progress = Math.min(Math.max(Math.round(score), 0), 100);
+
+  // Determine strength level
   let strength = "Very Weak";
   let className = "very-weak";
 
@@ -99,17 +109,24 @@ function updateStrength(length, hasUpper, hasLower, hasNum, hasSym) {
     className = "weak";
   }
 
-  if (length < 8 || typesCount < 2) {
-    strength = "Very Weak";
-    className = "very-weak";
-  } else if (length < 12 || typesCount < 3) {
-    strength = "Weak";
-    className = "weak";
-  }
+  // Simple crack time estimate (very approximate, for fun/education)
+  let crackTime = "";
+  if (progress < 20)      crackTime = "a few seconds to minutes";
+  else if (progress < 40) crackTime = "hours to days";
+  else if (progress < 60) crackTime = "months to years";
+  else if (progress < 80) crackTime = "centuries";
+  else                    crackTime = "millennia (practically impossible)";
 
-  strengthEl.textContent = `Password Strength: ${strength}`;
+  // Update DOM
+  const strengthEl = document.getElementById('strength');
   strengthEl.className = className;
+
+  document.getElementById('strength-text').textContent = `Password Strength: ${strength}`;
+  document.getElementById('progress-bar').style.width = `${progress}%`;
+  document.getElementById('crack-time').textContent = `Estimated crack time: ${crackTime}`;
 }
+
+
 // Password টেক্সটে ক্লিক করলেই কপি হবে + visual feedback
 passwordDisplay.addEventListener('click', () => {
   if (!passwordDisplay.value) return;

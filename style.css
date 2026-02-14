@@ -289,3 +289,39 @@ button:hover {
     font-size: 0.9rem;
   }
 }
+/* Strength Progress Bar */
+.progress-container {
+  height: 10px;
+  background: #333355;
+  border-radius: 5px;
+  margin: 0.8rem 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  transition: width 0.4s ease, background 0.4s ease;
+  border-radius: 5px;
+}
+
+.very-weak  .progress-bar { background: #ff0000; }
+.weak       .progress-bar { background: #ff6600; }
+.good       .progress-bar { background: #88ff88; }
+.very-good  .progress-bar { background: #00cc44; }
+.strong     .progress-bar { background: #03da03; }
+.very-strong.progress-bar { background: #00ff00; }
+
+#strength-text {
+  font-weight: bold;
+  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
+}
+
+.crack-time-text {
+  font-size: 0.95rem;
+  color: #a0ffa0;
+  margin-top: 0.5rem;
+  text-align: center;
+  font-style: italic;
+}
